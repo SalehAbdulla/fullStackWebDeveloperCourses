@@ -1,12 +1,26 @@
 /* Write your code here: */
 
+/* Group Rule*/
 h1, h2 {
     color: blueviolet;
 }
+/* Chile Rule*/
 .box > p {
     color: firebrick;
 }
-
+/* Descendent Rule*/
 .box li {
     color: blue;
+}
+
+/* Chain Rule super Rule */
+
+li.done {
+    color: seagreen;
+}
+
+/* combination Rule*/
+
+ul > p.done {
+    font-size: 0.5rem;
 }

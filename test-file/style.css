@@ -1,0 +1,13 @@
+body{
+    background-color: black;
+}
+
+div > * {
+    color: white;
+    flex: 1;
+}
+
+div{
+    display: flex;
+    gap: 10px;
+}

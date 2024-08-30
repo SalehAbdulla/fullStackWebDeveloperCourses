@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res)=>{
   res.render("index.ejs",
-    {title: "Write You Name ⬇️"}
+    {title: "Write Your Name ⬇️"}
   );
 })
 

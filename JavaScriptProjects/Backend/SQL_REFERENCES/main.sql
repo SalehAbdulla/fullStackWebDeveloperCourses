@@ -86,4 +86,13 @@ INNER JOIN products ON product_id = products.id;
 
 -- INSERT INTO ==> This is for db.query("")
 
-db.query("INSERT INTO world_food (COLUMN1, COLUMN2) VALUES ($1, $1)", ["Italy", 1.56]);
+db.query("INSERT INTO world_food (COLUMN1, COLUMN2) VALUES ($1, $2)", ["Italy", 1.56]);
+
+-- SEARCH SOMETHING LIKE 
+SELECT country FROM world_food WHERE country LIKE '%' || 'a', [input]
+
+
+-- ADVANCE SEARCH 
+SELECT country_code FROM countries WHERE LOWER(country_name) LIKE '%' || $1 || '%', [input.toLowerCase()]
+
+

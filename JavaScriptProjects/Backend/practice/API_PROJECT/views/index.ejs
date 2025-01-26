@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/main.css">
+    <title>Posts main page</title>
+</head>
+<body>
+
+    <a href="/new">New Post</a>
+    <%locals.posts.forEach(post =>{%>
+    <div class="container">
+
+        <h1><%=post.title%></h1>
+        <h1><%=post.content%></h1>
+        <h1><%=post.author%></h1>
+        <h1><%=post.date%></h1>
+        <a href="edit/<%=post.id%>">Edit post</a>
+        <a href="delete/<%=post.id%>">Delete post</a>
+    </div>
+    <%});%>
+
+</body>
+</html>

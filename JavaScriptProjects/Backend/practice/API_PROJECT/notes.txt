@@ -1,0 +1,12 @@
+// Simple API blog website, implementing API and server
+// We will use axios to contact with API 
+// we will create a web site, contains blogs
+// Allows the user to add, edit, and delete posts.
+// implementing database
+
+Create a new post
+
+
+Index.ejs will used for showing all posts available in database // Each post will have Edit and Delete button
+Modify page will have two forms, form for editing, and form for creating a new post // 
+

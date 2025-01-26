@@ -2,7 +2,6 @@ import express from "express";
 import bodyParser from "body-parser";
 import pg from "pg";
 
-
 const app = express();
 const port = 3000;
 const db = new pg.Client({
@@ -10,52 +9,48 @@ const db = new pg.Client({
   host: "localhost",
   database: "permalist",
   password: "YaZahraa@135",
-  port: 5432
+  port: 5432,
 });
 
 db.connect();
 
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+let items = [
+  { id: 1, title: "Buy milk" },
+  { id: 2, title: "Finish homework" },
+];
 
-async function getItems(){
-  const data = await db.query("SELECT * FROM items ORDER BY title ASC");
-  const result = [];
-  data.rows.forEach((item)=>{
-    result.push(item);
-  })
-  console.log(result);
-  return result;
-}
-
-app.get("/", async (req, res) => {
-  const items = await getItems();
+app.get("/", (req, res) => {
   res.render("index.ejs", {
     listTitle: "Today",
     listItems: items,
   });
 });
 
-app.post("/add", async (req, res) => {
+app.post("/add", (req, res) => {
   const item = req.body.newItem;
-  await db.query("INSERT INTO items (title) VALUES ($1); ", [item]);
+  items.push({ title: item });
   res.redirect("/");
 });
+
+async function getItems(){
+  const data = await db.query("SELECT * FROM items");
+  const result = data.rows;
+  console.log(result);
+  return result;
+}
+
+getItems();
 
 app.post("/edit", async (req, res) => {
-  const userIdchoose = req.body.updatedItemId;
-  const userNewTitle = req.body.updatedItemTitle;
-
-  await db.query("UPDATE items SET title = $1 WHERE id = $2;", [ userNewTitle, userIdchoose]);
-  res.redirect("/");
+  const result = await getItems();
+  res.render("index.ejs", {listItems: result});
 });
 
-app.post("/delete", async (req, res) => {
-  const userIdchoose = req.body.deleteItemId;
-  await db.query("DELETE FROM items WHERE id = $1;", [userIdchoose]);
-  res.redirect("/");
-});
+app.post("/delete", (req, res) => {});
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);

@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 async function getPostsFromDb(){
     let posts = [];
     const data = await db.query("SELECT * FROM posts");
-    data.rows.forEach((post)=>{
+    data.rows.forEach((post)=> {
         posts.push(post);
     })
     console.log(posts);
@@ -65,6 +65,7 @@ app.patch("/posts/:id", async (req, res)=>{
         if (!title || !content || !author) {
             res.status(400).json({message: "All fields must be exist"});
         }
+
         if (!id || isNaN(id)){
             res.status(400).json({message: "Not valid post id"});
         }
@@ -83,7 +84,7 @@ app.patch("/posts/:id", async (req, res)=>{
 })
 
 // get post by id for easier editing -- will be shown in editing form
-app.get("/posts/:id", async (req, res)=>{
+app.get("/posts/:id", async (req, res) => {
 
     try {
         const result = await db.query("SELECT * FROM posts WHERE id = $1", [req.params.id]);

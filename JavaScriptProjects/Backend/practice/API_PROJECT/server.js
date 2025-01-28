@@ -23,7 +23,7 @@ app.get("/", async (req, res)=>{
 })
 
 // render createAndModify page for new post
-app.get("/new",(req, res)=>{
+app.get("/new",(req, res) => {
     res.render("createAndModify.ejs", {header: "New Post", submit: "Create Post"});
 })
 

@@ -2,9 +2,8 @@ import express from "express";
 import bodyParser from "body-parser";
 import pg from "pg";
 import bcrypt from "bcrypt";
-import session from "express-session";  // A new setup to start user log in session
-import passport from "passport";
-import {Strategy} from "passport-local";
+import session from "express-session";
+
 
 const app = express();
 const port = 3000;
@@ -19,10 +18,6 @@ app.use(session({
   saveUninitialized: true,
 }));
 
-app.use(passport.initialize());
-app.use(passport.session());
-
-
 
 
 const db = new pg.Client({
@@ -32,7 +27,6 @@ const db = new pg.Client({
   password: "YaZahraa@135",
   port: 5432,
 });
-
 db.connect();
 
 app.get("/", (req, res) => {
@@ -46,16 +40,6 @@ app.get("/login", (req, res) => {
 app.get("/register", (req, res) => {
   res.render("register.ejs");
 });
-
-app.get("/secrets", async (req, res)=>{
-  if (req.isAuthenticated){
-    res.render("secrets.ejs");
-  } else {
-    res.render("login.ejs");
-  }
-})
-
-
 
 app.post("/register", async (req, res) => {
   const email = req.body.username;
@@ -96,11 +80,9 @@ app.post("/login", async (req, res) => {
     const result = await db.query("SELECT * FROM users WHERE email = $1", [
       email,
     ]);
-
     if (result.rows.length > 0) {
       const user = result.rows[0];
       const storedHashedPassword = user.password;
-
       bcrypt.compare(loginPassword, storedHashedPassword, (err, result) => {
         if (err) {
           console.error("Error comparing passwords:", err);
@@ -119,14 +101,6 @@ app.post("/login", async (req, res) => {
     console.log(err);
   }
 });
-
-
-
-
-
-passport.use(new Strategy(function verify(username, password, cb){
-  
-}))
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);

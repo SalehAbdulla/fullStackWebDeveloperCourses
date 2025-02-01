@@ -29,6 +29,11 @@ app.use(session({
   cookie: {maxAge: 1000*60*60*24},
 }));
 
+
+// passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.get("/logout", (req, res) => {
   req.logout(function (err) {
     if (err) {
@@ -40,11 +45,6 @@ app.get("/logout", (req, res) => {
     });
   });
 });
-
-// passport middleware
-app.use(passport.initialize());
-app.use(passport.session());
-
 
 const db = new pg.Client({
   user: "postgres",
@@ -113,6 +113,8 @@ app.post("/register", async (req, res) => {
             "INSERT INTO users (email, password) VALUES ($1, $2) RETURNING *",
             [email, hash]
           );
+
+          
           const user = result.rows[0];
           req.login(user, (err)=>{
 

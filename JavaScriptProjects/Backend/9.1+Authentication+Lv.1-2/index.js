@@ -8,6 +8,7 @@ import passport from "passport";
 const app = express();
 const port = 3000;
 const saltRounds = 10;
+
 const db = new pg.Client({
   user: "postgres",
   host: "localhost",
@@ -95,9 +96,9 @@ passport.use(new Strategy(async function verify(username, password, cb){
       const hashedPassword = user.password;
       const isPassCorrect = await bcrypt.compare(password, hashedPassword);
       if (isPassCorrect) {
-        cb(null, user);
+        return cb(null, user);
       } else {
-        cb(null, false);
+        return cb(null, false);
       }
     } else {
       cb("Email does not exist");

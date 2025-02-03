@@ -56,7 +56,7 @@ app.get("/secrets", (req, res)=>{
 app.get("/logout", (req, res)=>{
   req.logout((err)=>{
     if (err){
-      return next(err);
+      res.send(err);
     }
     res.redirect("/");
   })
@@ -92,8 +92,10 @@ app.post("/register", async (req, res)=>{
     }
 
   } catch (err){
-    res.send(err);
+    console.error(err);
+    res.send("Something went wrong, try again later");
   }
+
 })
 
 passport.use(new Strategy(async function verify(username, password, cb){
@@ -106,9 +108,9 @@ passport.use(new Strategy(async function verify(username, password, cb){
       const isPassCorrect = await bcrypt.compare(password, storedHashedPassword);
 
       if (isPassCorrect){
-        cb(null, user);
+        return cb(null, user);
       } else {
-        cb("Wrong Password", false);
+        return cb("Wrong Password", false);
       }
 
     } else {
@@ -132,7 +134,7 @@ passport.deserializeUser(async function(id, cb){
     if (result.rows.length > 0){
       cb(null, result.rows[0]);
     } else {
-      cb(null, false);
+      cb("user not found", false);
     }
 
   } catch (err){

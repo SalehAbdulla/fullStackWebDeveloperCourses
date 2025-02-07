@@ -1,0 +1,36 @@
+{
+    provider: 'google',
+    sub: '109422494133110157128',
+    id: '109422494133110157128',
+    displayName: 'SALEH ABDULLA',
+    name: { givenName: 'SALEH ABDULLA', familyName: undefined },
+    given_name: 'SALEH ABDULLA',
+    family_name: undefined,
+    email_verified: true,
+    verified: true,
+    email: 'nonemask1@gmail.com',
+    emails: [ { value: 'nonemask1@gmail.com', type: 'account' } ],
+    photos: [
+      {
+        value: 'https://lh3.googleusercontent.com/a/ACg8ocJ__GA9QLUwoCc5GUkfq4lKo3j7BYV-IQn9txwWjFTPIdYq2uInTQ=s96-c',
+        type: 'default'
+      }
+    ],
+    picture: 'https://lh3.googleusercontent.com/a/ACg8ocJ__GA9QLUwoCc5GUkfq4lKo3j7BYV-IQn9txwWjFTPIdYq2uInTQ=s96-c',
+    _raw: '{\n' +
+      '  "sub": "109422494133110157128",\n' +
+      '  "name": "SALEH ABDULLA",\n' +
+      '  "given_name": "SALEH ABDULLA",\n' +
+      '  "picture": "https://lh3.googleusercontent.com/a/ACg8ocJ__GA9QLUwoCc5GUkfq4lKo3j7BYV-IQn9txwWjFTPIdYq2uInTQ\\u003ds96-c",\n' +
+      '  "email": "nonemask1@gmail.com",\n' +
+      '  "email_verified": true\n' +
+      '}',
+    _json: {
+      sub: '109422494133110157128',
+      name: 'SALEH ABDULLA',
+      given_name: 'SALEH ABDULLA',
+      picture: 'https://lh3.googleusercontent.com/a/ACg8ocJ__GA9QLUwoCc5GUkfq4lKo3j7BYV-IQn9txwWjFTPIdYq2uInTQ=s96-c',
+      email: 'nonemask1@gmail.com',
+      email_verified: true
+    }
+}

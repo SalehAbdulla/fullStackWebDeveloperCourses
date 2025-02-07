@@ -8,10 +8,21 @@ import GoogleStrategy from "passport-google-oauth2";
 import session from "express-session";
 import env from "dotenv";
 
+env.config();
+
 const app = express();
 const port = 3000;
 const saltRounds = 10;
-env.config();
+const db = new pg.Client({
+  user: process.env.PG_USER,
+  host: process.env.PG_HOST,
+  database: process.env.PG_DATABASE,
+  password: process.env.PG_PASSWORD,
+  port: process.env.PG_PORT,
+});
+
+db.connect();
+
 
 app.use(
   session({
@@ -22,18 +33,10 @@ app.use(
 );
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
-
 app.use(passport.initialize());
 app.use(passport.session());
 
-const db = new pg.Client({
-  user: process.env.PG_USER,
-  host: process.env.PG_HOST,
-  database: process.env.PG_DATABASE,
-  password: process.env.PG_PASSWORD,
-  port: process.env.PG_PORT,
-});
-db.connect();
+
 
 app.get("/", (req, res) => {
   res.render("home.ejs");
@@ -64,6 +67,8 @@ app.get("/secrets", (req, res) => {
   }
 });
 
+// Get routes using passport
+
 app.get(
   "/auth/google",
   passport.authenticate("google", {
@@ -78,6 +83,8 @@ app.get(
     failureRedirect: "/login",
   })
 );
+
+// post routes
 
 app.post(
   "/login",
@@ -120,16 +127,13 @@ app.post("/register", async (req, res) => {
   }
 });
 
-passport.use(
-  "local",  
-  new Strategy(async function verify(username, password, cb) {
+passport.use("local", new Strategy(async function verify(username, password, cb) {
     try {
-      const result = await db.query("SELECT * FROM users WHERE email = $1 ", [
-        username,
-      ]);
+      const result = await db.query("SELECT * FROM users WHERE email = $1 ", [username]);
       if (result.rows.length > 0) {
         const user = result.rows[0];
         const storedHashedPassword = user.password;
+
         bcrypt.compare(password, storedHashedPassword, (err, valid) => {
           if (err) {
             console.error("Error comparing passwords:", err);
@@ -151,9 +155,7 @@ passport.use(
   })
 );
 
-passport.use(
-  "google",
-  new GoogleStrategy(
+passport.use("google", new GoogleStrategy(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,

@@ -124,6 +124,7 @@ passport.use("local", new Strategy(async function verify(username, password, cb)
     } catch (err){
         return cb(err);
     }
+    
 }));
 
 // Google Strategy

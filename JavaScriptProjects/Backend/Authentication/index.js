@@ -2,7 +2,7 @@
 import express from "express";
 import session from "express-session";
 import passport from "passport";
-import { Strategy } from "passport";
+import { Strategy } from "passport-local";
 import GoogleStrategy from "passport-google-oauth2"
 import pg from "pg";
 import bcrypt from "bcrypt";
@@ -53,7 +53,7 @@ app.get("/register", (req, res)=>{
     res.render("register.ejs");
 });
 
-app.get("/submits", (req, res)=>{
+app.get("/secrets", (req, res)=>{
     if (req.isAuthenticated()){
         res.render("secrets.ejs");
     } else {
@@ -61,101 +61,97 @@ app.get("/submits", (req, res)=>{
     }
 });
 
-// Strategies
-
-app.get("/auth/google", passport.authenticate("google", {scope: ["profile", "email"]}));
-app.get("/auth/google/secrets", passport.authenticate("google", {successRedirect: "/secrets", failureRedirect: "/login"}));
-
-app.post("/login", passport.authenticate("local", {successRedirect: "/secrets", failureRedirect: "/login"}));
-
-app.post("/logout", (req, res) => {
+app.get("/logout", (req, res)=>{
     req.logout((err)=>{
-        if (err) console.log(err);
+        if (err) res.send(err);
         res.redirect("/");
     });
 });
 
-// post request
+// Strategies
+app.get("/auth/google", passport.authenticate("google", {scope: ["profile", "email"]}));
+app.get("/auth/google/secrets", passport.authenticate("google", {successRedirect: "/secrets", failureRedirect: "/login"}));
+
+
+// Post request
+app.post("/login", passport.authenticate("local", {successRedirect: "/secrets", failureRedirect: "/login"}));
 
 app.post("/register", async (req, res) => {
+
     const username = req.body.username;
     const password = req.body.password;
 
     try {
-        // check if email exist
-        const isEmailExist = await db.query("SELECT * FROM users WHERE email = $1;", [username]);
-
-        if (isEmailExist.rows.length === 0){
-            const hasedPassword = await bcrypt.hash(password, saltRounds);
-            const result = await db.query("INSERT INTO users (email, passwrod) VALUES ($1, $2) RETRUNING *;", [username, hasedPassword]);
-
-            req.login(user, (err)=>{
-                if (err) res.status(500).send("Error Occur");
-                res.redirect("/login");
+        const isEmailExist = await db.query("SELECT * FROM users WHERE email = $1", [username]);
+        if (isEmailExist.rows.length == 0){
+            const hashedPassword = await bcrypt.hash(password, saltRounds);
+            const result = await db.query("INSERT INTO users (email, password) VALUES ($1, $2) RETURNING *", [username.toLowerCase(), hashedPassword]);
+            const user = result.rows[0];
+            req.login(user, (err) => {
+                if (err) res.send("Error Occur");
+                res.redirect("/secrets");
             });
-
         } else {
-            res.send("Email already Exist, try to sign in");
+            res.send("Email Already Exist, try again later");
         }
-
     } catch (err){
         console.log(err);
-        res.status(500).send("Error Occure, try again later");
+        res.send("Error Occure, try again later");
     }
 });
 
 
-// Strategies
 
-passport.use("local", new Strategy(async function verify(username, password, cb) {
+// passport local strategy
+
+passport.use("local", new Strategy(async function verify(username, password, cb){
+    
     try {
-        const isEmailExist = await db.query("SELECT * FROM users WHERE email = $1", [username]);
+        const isEmailExist = await db.query("SELECT * FROM users WHERE email = $1;", [username]);
         if (isEmailExist.rows.length > 0){
             const user = isEmailExist.rows[0];
-            const isPassCorrect = await bcrypt.compare(password, user.password);
-            if (isPassCorrect) {
+            const isPasswordCorrect = await bcrypt.compare(password, user.password);
+            if (isPasswordCorrect) {
                 return cb(null, user);
             } else {
                 return cb(null, false);
             }
         } else {
-            return cb("User not found");
-        }
-    } catch (err){
-        console.log(err);
-        res.status(500).send("Error Occur");
-    }
-}));
-
-
-passport.use("google", new GoogleStrategy({
-
-    clientID : process.env.GOOGLE_CLIENT_ID,
-    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/google/secrets",
-    userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
-
-}, async (accessToken, refreshToken, profile, cb)=>{
-    try {
-        // check if email exist
-        const isEmailExist = await db.query("SELECT * FROM users WHERE email = $1", [profile.email]);
-        if (isEmailExist.rows.length == 0){
-            const result = await db.query("INSERT INTO users (email, password) VALUES ($1, $2) RETRUNING *;", [profile.email, profile.id]);
-            const user = result.rows[0];
-            return cb(null, user);
-        } else {
-            return cb(null, false);
+            return cb("user not found");
         }
     } catch (err){
         return cb(err);
     }
+
+}));
+
+// passport google strategy
+
+passport.use("google", new GoogleStrategy({
+    
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: "http://localhost:3000/auth/google/secrets",
+    userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
+
+}, async (accessToken, refreshToken, profile, cb) => {
+    try {
+        const isEmailExist = await db.query("SELECT * FROM users WHERE email = $1", [profile.email]);
+        if (isEmailExist.rows.length === 0){
+            const registerUser = await db.query("INSERT INTO users (email, password) VALUES ($1, $2) RETURNING *;", [profile.email, profile.id]);
+            return cb(null, registerUser.rows[0]);
+        } else {
+            return cb(null, isEmailExist.rows[0]);
+        }
+    } catch (err){
+        cb(err);
+    }
 }));
 
 
-
-
+// Serialiaztion 
 passport.serializeUser((user, cb)=>{
-    cb(null, user.id);
+    return cb(null, user.id);
 });
 
 passport.deserializeUser(async (id, cb)=>{
@@ -164,31 +160,15 @@ passport.deserializeUser(async (id, cb)=>{
         if (isEmailExist.rows.length == 0){
             return cb(null, false);
         } else {
-            const user = isEmailExist.rows[0];
-            return cb(null, user);
+            return cb(null, isEmailExist.rows[0]);
         }
-    } catch (err) {
-        console.log(err);
+    } catch {
+        return cb("Error Occur");    
     }
 });
 
 
-
-app.listen(port, ()=>{
+app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

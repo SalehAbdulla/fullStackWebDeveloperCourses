@@ -99,8 +99,6 @@ app.post("/login", passport.authenticate("local", {successRedirect: "/secrets", 
 
 
 
-
-
 // Register post request
 
 app.post("/register", async (req, res)=>{

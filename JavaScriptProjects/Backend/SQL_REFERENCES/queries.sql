@@ -149,3 +149,24 @@ WHERE user_id = 1 AND country_code = 'FR'
 -------
 
 
+CREATE TABLE users (
+	id SERIAL PRIMARY KEY,
+	email VARCHAR(255) NOT NULL UNIQUE,
+	password VARCHAR(255) NOT NULL,
+	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE secrets (
+
+	id SERIAL PRIMARY KEY,
+	user_id INT NOT NULL,
+	secret TEXT NOT NULL,
+	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
+	
+);
+
+
+ON DELETE CASCADE
+once the user with id = 1 is deleted from the parent users table.
+ALL secrets where user_id = 1 are also deleted automatically from the child secrets table.

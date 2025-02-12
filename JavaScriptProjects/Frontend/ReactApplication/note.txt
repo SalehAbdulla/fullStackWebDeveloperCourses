@@ -1,0 +1,24 @@
+Step 4. Create a Vite app by running the following command in your Terminal or Command Prompt:
+
+npm create vite@latest my-react-app --template react
+
+
+
+Step 5. The first time, you won't have Vite installed. Type y to proceed. Then you'll be asked to select a framework. Use your down arrow to select React.
+
+Step 6. You'll be asked to select a variant, select Javascript.
+
+Step 7. Change directory to the new app that you built.
+
+cd my-react-app
+
+
+Step 8. Install dependencies:
+
+npm install
+
+
+Step 9. Start the development server:
+
+npm run dev
+

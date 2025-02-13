@@ -30,6 +30,15 @@ await db.connect();
 
 //CHALLENGE 5: DELETE a specific post by providing the post id.
 
+app.delete("/secret/delete/:id", async (req, res)=>{
+
+    const secretId = req.params.id;
+    try {
+        await db.query("DELETE FROM secrets WHERE id = $1", [secretId]);
+    } catch (err) {
+        res.status(500).json({message: "Error deleting secret"});
+    }
+});
 
 
 app.listen(port, () => {

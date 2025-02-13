@@ -82,6 +82,6 @@ app.delete("/api/posts/delete/:id", (req, res)=>{
 });
 
 
-app.listen(port, ()=>{
+app.listen(port, () => {
     console.log(`Backend is running API on port ${port}`)
 });

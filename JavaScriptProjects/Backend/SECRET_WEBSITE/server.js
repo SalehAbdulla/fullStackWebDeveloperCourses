@@ -65,12 +65,21 @@ app.get("/submit", (req, res)=>{
 
 // Get routes for private pages
 app.get("/secrets", async (req, res) => {
+
     const secrets = await getSecrets(req.user.id); 
+    const secretsArray = [];
+
+    secrets.rows.forEach((secret)=>{
+        secretsArray.push(secret);
+        console.log(secretsArray);
+    });
+
     if (req.isAuthenticated()) {
-        res.render("secrets.ejs", {secret: secrets || ""});
+        res.render("secrets.ejs", {secret: secretsArray || ""});
     } else {
         res.redirect("/login");
     }
+
 });
 
 app.get('/auth/google', passport.authenticate('google', {scope:['email', 'profile']}));
@@ -83,7 +92,7 @@ app.get('/auth/google/secrets',
 ));
 
 app.get("/logout", (req, res)=>{
-    req.logout((err)=>{
+    req.logout((err) => {
         if (err) return res.send(err);
         res.redirect("/");
     });
@@ -113,16 +122,18 @@ app.post("/submit", async (req, res)=>{
 // Partially update a secret
 
 // Delete a secret
-
+app.get("/secret/delete/:id", async (req, res)=>{
+    
+});
 
 // fitch all secrets from secrets
 
 async function getSecrets(userId){
     const secretsArray = [];
-    const result = await db.query("SELECT secret FROM secrets WHERE user_id = $1", [userId]);
+    const result = await db.query("SELECT * FROM secrets WHERE user_id = $1", [userId]);
     
     result.rows.forEach((secret)=>{
-        secretsArray.push(secret.secret);
+        secretsArray.push(secret);
     });
 
     console.log(secretsArray);

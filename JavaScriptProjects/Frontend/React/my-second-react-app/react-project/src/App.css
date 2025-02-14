@@ -1,8 +1,29 @@
-h1 {
+#name {
     color: wheat;
     margin-bottom: 30px;
 
 }
+
+.heading{
+    color: red;
+    
+}
+
+.food-images {
+    display: flex;
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    margin-left: 3px;
+}
+.photos{
+    margin-left: 10px;
+}
+
+ul {
+    color: blue;
+}
+
 
 body {
     background-color: black;

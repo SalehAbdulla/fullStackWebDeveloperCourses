@@ -112,8 +112,8 @@ app.post("/register", async (req, res)=>{
       const result = await db.query("INSERT INTO users (email, password) VALUES ($1, $2) RETURNING *", [username, hashPassword]);
       const user = result.rows[0];
       req.login(user, (err) => {
-        if (err){
-          return res.send("Error Occur, try again later", err);
+        if (err) {
+          return res.status(500).send("Error Occurred, try again later.");
         } 
         res.redirect("/secrets");
       });
@@ -128,7 +128,7 @@ app.post("/register", async (req, res)=>{
 
 
 
-passport.use("local", new Strategy(async function verify(username, password, cb){
+passport.use("local", new Strategy(async function verify(username, password, cb) {
 
   try {
       const isEmailExist = await db.query("SELECT * FROM users WHERE LOWER(email) = $1", [username.toLowerCase()]);

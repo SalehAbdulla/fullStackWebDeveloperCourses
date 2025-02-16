@@ -47,7 +47,7 @@ app.get("/posts", (req, res)=>{
 });
 
 //CHALLENGE 2: GET a specific post by id
-app.get("/posts/:id", (req, res)=>{
+app.get("/posts/:id", (req, res) => {
   const post = posts.find((post)=> post.id === parseInt(req.params.id));
   res.json(post);
 });

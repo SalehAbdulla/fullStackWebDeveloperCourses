@@ -8,11 +8,10 @@ import Home from './pages/Home'
 
 
 
-
 const App = () => {
 
   const movieNumber = 2;
-  
+
 
   return (
     <div>

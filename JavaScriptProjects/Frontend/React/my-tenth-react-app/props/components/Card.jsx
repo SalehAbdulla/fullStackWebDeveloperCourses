@@ -1,16 +1,25 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import contacts from "./contants";
+import "./Card.css"
+import Avatar from "./Avatar";
+import Info from "./Info";
 
-
-
-const Card = (props) => {
-
+const Card = (card)=>{
     return (
         <div>
-            <h1>{props.id}</h1>
-            <h1>{props.title}</h1>
-            <h2>{props.name}</h2>
-            <img src={props.url} alt={props.name} />
+            <h1 className="heading" >{card.name}</h1>
+            <div className="card">
+
+                <div className="top">
+                    <h2 className="name">{card.name}</h2>
+                   <Avatar imgURL={card.imgURL}/>
+                </div>
+
+                <div className="bottom">
+                    <Info info={card.email}/>
+                    <Info info={card.phone}/>
+                </div>
+
+            </div>
         </div>
     )
 }

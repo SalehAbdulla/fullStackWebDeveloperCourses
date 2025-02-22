@@ -1,18 +1,16 @@
 import express from "express";
-import passport from "passport";
-import session from "express-session";
-import { Strategy } from "passport-local";
-import GoogleStratrgy from "passport-google-oauth2";
-import pg from "pg";
+import applyMiddlewares from "./configuration/middleware.js";
 import env from "dotenv";
+import pg from "pg";
 import bcrypt from "bcrypt";
+import passport from "passport";
+import { Strategy } from "passport-local";
 
-// application initilistion
+
 env.config();
 
 const app = express();
 const port = 3000;
-const saltRounds = 10;
 const db = new pg.Client({
   user: process.env.PG_USER,
   host: process.env.PG_HOST,
@@ -23,112 +21,94 @@ const db = new pg.Client({
 
 db.connect();
 
-// middlewares
-app.use(express.urlencoded({extended: true}));
-app.use(express.json());
-app.use(express.static("public"));
-app.use(session({
-  secret: process.env.SESSION_SECRET,
-  resave: false,
-  saveUninitialized: true,
-  cookie: {maxAge: 1000*60*60*24},
-}));
-app.use(passport.initialize());
-app.use(passport.session());
+// -----------  MiddleWare  ----------------
 
+applyMiddlewares(app);
 
-// get routes
-app.get("/", (req, res)=>{
+// -----------  Get Routes  ----------------
+
+app.get("/", (req, res) => {
   res.render("home.ejs");
 });
 
-app.get("/register", (req, res)=>{
-  res.render("register.ejs");
-});
 
-app.get("/login", (req, res)=>{
+app.get("/login", (req, res) => {
   res.render("login.ejs");
 });
 
-app.get("/secrets", (req, res)=>{
-  if (req.isAuthenticated()){
-    res.render("/secrets.ejs", {secret: req.user.secret || ""});
+
+app.get("/register", (req, res) => {
+  res.render("register.ejs");
+});
+
+app.get("/secrets", (req, res) => {
+  if (req.isAuthenticated()) {
+    res.render("secrets.ejs");
   } else {
     res.redirect("/login");
   }
 });
 
-app.post("login", passport.authenticate("local", {successRedirect: "/secrets", failureRedirect: "/login"}));
+// -----------  post Routes  ----------------
 
-app.post("/register", async (req, res)=>{
+app.post("/register", async (req, res) => {
   try {
+
     const isEmailExist = await db.query("SELECT * FROM users WHERE email = $1", [req.body.username]);
+    if (isEmailExist.rows.length == 0) {
 
-    if (isEmailExist.rows.length === 0){
+      const hashedPassword = await bcrypt.hash(req.body.password, 10);
+      const result = await db.query("INSERT INTO users (email, password) VALUES ($1, $2) RETURNING *;",
+        [req.body.username, hashedPassword]);
 
-      const hashedPassword = await bcypt.hash(req.body.password, saltRounds);
-      const result = await db.query("INSERT INTO users (email, password) VALUES ($1, $2);",[req.body.username.toLowerCase(), hashedPassword]);
       const user = result.rows[0];
-      req.login(user, (err)=>{
+
+      req.login(user, (err) => {
         if (err) return res.send(err);
         res.redirect("/secrets");
-      });
+      })
+
     } else {
-      res.send("user already exist, try to sign in");
+      res.send("Email is already exist, please sign in");
     }
 
-  } catch (err){
-    res.status(500).send(err);
+  } catch (err) {
+    res.send(err);
   }
 });
 
 
-// local strategy
 
-passport.use("local", new Strategy(async (username, password, cb) => {
-  try {
-    const isEmailExist = await db.query("SELECT * FROM users WHERE LOWER(email) = $1", [username.toLowerCase()]);
-    if (isEmailExist.rows.length > 0){
-      const user = isEmailExist.rows[0];
-      const match = await bcrypt.compare(password, user.password);
-      if (match){
-        return cb(null, user);
-      } else {
-        return cb(null, false);
-      }
-    } else {
-      return cb("user not found");
-    }
-  } catch (err){
-    return cb(err);
-  }
+
+
+// -----------  Strategies  ----------------
+
+
+passport.use("local", new Strategy(async function verify(username, password){
+
+  
+
+
+
+
 }));
 
-// serilisation
-
-passport.serializeUser((user, cb)=>{
-  return cb(null, user.id);
-});
-
-passport.deserializeUser(async (id, cb)=>{
-
-  try {
-    const isEmailExist = await db.query("SELECT * FROM users WHERE id = $1", [id]);
-    if (isEmailExist.rows.length > 0) {
-      const user = isEmailExist.rows[0];
-      return cb(null, user);
-    } else {
-      return cb(null, false)
-    }
-    
-  } catch (err){
-    return cb(err);
-  }
 
 
+// -----------  Serialisation  ----------------
+
+passport.serializeUser((user, cb) => {
+  return cb(null, user)
 });
 
 
-app.listen(port, ()=>{
-  console.log(`Server is running on port http://localhost:${port}`);
+
+passport.deserializeUser((user, cb) => {
+  return cb(null, user);
+});
+
+
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });

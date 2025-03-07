@@ -8,6 +8,7 @@ function App() {
 
   return (
     <>
+    
       <div>
         {emojipedia.map(param => (
           <Entry
@@ -18,6 +19,7 @@ function App() {
           />
         ))}
       </div>
+
     </>
   )
 }

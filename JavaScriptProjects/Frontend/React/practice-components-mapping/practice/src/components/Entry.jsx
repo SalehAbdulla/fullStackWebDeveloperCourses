@@ -12,4 +12,5 @@ const Entry = (param) => {
     )
 }
 
+
 export default Entry;

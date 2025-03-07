@@ -1,17 +1,17 @@
-import './App.css';
+import React from "react";
 import Card from "../components/Card";
-import contacts from '../components/contants';
-import Avatar from '../components/Avatar';
+import contacts from "../components/contacts"
 
 function App() {
-
   return (
     <div>
-      <Avatar imgURL="https://pbs.twimg.com/profile_images/625247595825246208/X3XLea04_400x400.jpg" />
-      {contacts.map(contact => (<Card name={contact.name} imgURL={contact.imgURL} email={contact.email} phone={contact.phone}/> ))}
+      <h1 className="heading">My Contacts</h1>
+
+      {contacts.map((contact) => <Card key={contact.id} name={contact.name} img={contact.imgURL} tel={contact.phone} email={contact.email}/>)}
+
+
     </div>
   );
-  
 }
 
 export default App;

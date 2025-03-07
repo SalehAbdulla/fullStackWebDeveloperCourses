@@ -3,7 +3,6 @@ import './App.css'
 
 function App() {
 
-
   // This is called declarative programming
   const isDone = false;
   const doneLineStylingDeclaratively = { textDecoration : "line-through" };

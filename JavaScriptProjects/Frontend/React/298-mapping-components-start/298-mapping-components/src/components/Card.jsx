@@ -1,8 +1,6 @@
 import React from "react";
 import Avatar from "./Avatar";
 import Detail from "./Detail";
-import "../components/Card.css";
-
 
 function Card(props) {
   return (

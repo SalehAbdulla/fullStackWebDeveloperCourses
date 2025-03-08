@@ -1,19 +1,21 @@
 import React from "react";
+import './Card.css';
 
-const Card = (props) => {
+
+const Emoji = (props) => {
     return (
-        <div>
-            <h1>{props.name}</h1>
-
-            <img
-                src={props.img}
-                alt={props.name}
-            />
-            <p>{props.number}</p>
-            <p>{props.email}</p>
-        </div>
+        <>
+            <div className='emoji-box'>
+                <dl>
+                    <h1 className="emoji">{props.emoji}</h1>
+                    <dt>{props.name}</dt>
+                    <dd>
+                        {props.meaning}
+                    </dd>
+                </dl>
+            </div>
+        </>
     );
-}
+};
 
-
-export default Card;
+export default Emoji;

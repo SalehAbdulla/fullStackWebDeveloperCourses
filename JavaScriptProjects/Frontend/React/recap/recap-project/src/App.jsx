@@ -6,12 +6,17 @@ import List from './components/List';
 import PI, { doublePi, troublePi } from './components/Math';
 // or import * as pi, and then access them pi.doublePi();
 import * as calc from './components/Calculator';
-
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Note from './components/Note';
 
 function App() {
 
   return (
     <>
+      <Header />
+      <Note />
+
 
       <div>
 
@@ -29,7 +34,7 @@ function App() {
         </div>
 
         <br />
-        // or we can access directly without an alies
+        
         <div>
           <ul>
             <li>
@@ -47,6 +52,8 @@ function App() {
           </ul>
         </div>
 
+
+        <Footer />
 
       </div>
     </>

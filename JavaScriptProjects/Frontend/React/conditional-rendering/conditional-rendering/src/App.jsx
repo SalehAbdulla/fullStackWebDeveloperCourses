@@ -1,8 +1,8 @@
 import './App.css';
 import Form from './componenets/Form';
 
-var isLoggedIn = false;
 
+const isRegistered = true;
 
 function App() {
 
@@ -11,7 +11,7 @@ function App() {
       <div>
         <div className="container">
 
-          {isLoggedIn ? (<h1>Hello</h1>) : <Form />}
+          <Form isRegistered={isRegistered}/>
 
         </div>
       </div>

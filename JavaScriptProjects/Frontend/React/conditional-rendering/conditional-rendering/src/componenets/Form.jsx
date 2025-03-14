@@ -1,26 +1,23 @@
 import React, {useState} from "react";
+import "./form.css";
 
+const Form = ()=>{
 
-const Form = (prop)=>{
+    var [time, setTime] = useState("Time");
 
-    const [count, setCount] = useState(0);
-
-    //const [r, g, b] = [9, 132, 227];
-
-    function addOne(){
-        setCount(count + 1);
+    function replaceToTime(){
+        time = setTime(new Date().toLocaleTimeString());
     }
 
-    function subtractOne(){
-        setCount(count - 1);
-    }
-
+    setInterval(replaceToTime, 1000);
 
     return (
         <div>
-            <h1>{count}</h1>
-            <button onClick={addOne}> Add one ++</button>
-            <button onClick={subtractOne}> subtract one --</button>
+            <h1>{time}</h1>
+
+            <div>
+                <button onClick={replaceToTime} id="time">GET TIME</button>
+            </div>
         </div>
     );
 }

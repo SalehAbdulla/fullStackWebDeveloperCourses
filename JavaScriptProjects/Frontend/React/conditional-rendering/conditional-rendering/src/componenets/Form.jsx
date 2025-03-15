@@ -9,7 +9,7 @@ const Form = ()=>{
         time = setTime(new Date().toLocaleTimeString());
     }
 
-    setInterval(replaceToTime, 1000);
+    // setInterval(replaceToTime, 1000);
 
     return (
         <div>

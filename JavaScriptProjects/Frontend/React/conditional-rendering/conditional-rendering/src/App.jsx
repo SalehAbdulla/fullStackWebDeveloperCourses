@@ -1,31 +1,35 @@
 import './App.css';
-import Form from './componenets/Form';
-import "./componenets/practice.js";
-import Table from './componenets/Table.jsx';
-import animals from './componenets/animals.js';
+import { useState } from 'react';
+
+
 
 function App() {
 
-  const [cat, dog] = animals;
 
-  const {name : catName, sound: catSound, feedingRequiremnt: {food, water}} = cat;
-  const {name: dogName, sound: dogSound} = dog;
-  
-  console.log(water);
+  let initialColor = {backgroundColor: "white"};
 
+  const [color, setColour] = useState(initialColor);
+
+  function setColourBlack(){
+    const newColor = {backgroundColor: "black"}
+    setColour(newColor);
+  }
+
+  function setColourWhite(){
+    const newColor = {backgroundColor: "white"}
+    setColour(newColor);
+  }
 
 
   return (
     <>
       <div>
-        <div className="container">
 
-          <Form />
-          <Table />
+        <form>
+          <input type="text" placeholder="What's your name?" />
+          <button onMouseOver={setColourBlack} onMouseOut={setColourWhite} style={color}>Submit</button>
+        </form>
 
-          
-
-        </div>
       </div>
     </>
   )

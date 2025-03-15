@@ -3,17 +3,24 @@ import cars from "./practice";
 
 const Table = () => {
 
-    const tesla = cars[1];
-    const teslaTopSpeed = tesla["speedStats"].topSpeed;
-    const teslaTopColour = tesla["coloursByPopularity"][0];
+    // const tesla = cars[1];
+    // const teslaTopSpeed = tesla["speedStats"].topSpeed;
+    // const teslaTopColour = tesla["coloursByPopularity"][0];
     
+    // const honda = cars[0];
+    // const hondaTopSpeed = honda["speedStats"].topSpeed;
+    // const hondaTopColour = honda["coloursByPopularity"][0];
 
 
-    const honda = cars[0];
-    const hondaTopSpeed = honda["speedStats"].topSpeed;
-    const hondaTopColour = honda["coloursByPopularity"][0];
-   
+    const [honda, tesla] = cars;
 
+    const {speedStats: {topSpeed : teslaTopSpeed}} = tesla;
+    const {speedStats: {topSpeed : hondaTopSpeed}} = honda;
+
+    const {coloursByPopularity: [teslaTopColour]} = tesla;
+    const {coloursByPopularity: [hondaTopColour]} = honda;
+
+    console.log(hondaTopColour);
 
     return (
         <div>

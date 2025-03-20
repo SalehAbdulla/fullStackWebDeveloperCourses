@@ -5,27 +5,28 @@ import React from 'react';
 
 function App() {
 
-  const [header, setHeader] = useState("");
-  const [headerTwo, setHeaderTwo] = useState("");
 
+  const [fName, setFName] = useState();
+  const [lName, setLName] = useState();
 
-  function handleChange(event) {
-    setHeader(event.target.value);
+  function handleFName(event){
+    setFName(event.target.value);
   }
 
-  function handleClick(){
-    setHeaderTwo(header);
+  function handleLName(event) {
+    setLName(event.target.value);
   }
+
  
   return (
     <>
 
       <div className='container'>
-
         <form>
-          <h1> {headerTwo} </h1>
-          <input onChange={handleChange} name='username' placeholder='Enter Your Name' />
-          <button onClick={handleClick}> Submit </button>
+          <h1>Hello {fName} {lName}</h1>
+          <input onChange={handleFName} type='text' name='fName' placeholder='First Name'/>
+          <input onChange={handleLName} type='text' name='lName' placeholder='Last Name' />
+          <button>Submit</button>
         </form>
 
       </div>

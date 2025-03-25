@@ -1,38 +1,43 @@
 import './App.css';
+import React from 'react';
 import { useState } from 'react';
-
 
 
 function App() {
 
+  const [isMouseOver, setMouseOver] = useState(false);
 
-  let initialColor = {backgroundColor: "white"};
-
-  const [color, setColour] = useState(initialColor);
-
-  function setColourBlack(){
-    const newColor = {backgroundColor: "black"}
-    setColour(newColor);
+  function handleMouseOver() {
+    setMouseOver(true);
   }
 
-  function setColourWhite(){
-    const newColor = {backgroundColor: "white"}
-    setColour(newColor);
+  function handleMouseOut() {
+    setMouseOver(false);
   }
 
+  const [header, setHeader] = useState("Hello");
+
+  function changeHeader(event){
+    setHeader(event.target.value);
+  }
 
   return (
-    <>
-      <div>
 
-        <form>
-          <input type="text" placeholder="What's your name?" />
-          <button onMouseOver={setColourBlack} onMouseOut={setColourWhite} style={color}>Submit</button>
-        </form>
+    <div>
+      <form className='container'>
+        <h1>{header}</h1>
 
-      </div>
-    </>
-  )
+        <input type='text' placeholder='Enter Name' />
+
+        <button onMouseOut={handleMouseOut} onMouseOver={handleMouseOver}
+          style={{ backgroundColor: isMouseOver ? "black" : "white" }}
+          onClick={changeHeader}
+        >Submit</button>
+
+      </form>
+    </div>
+
+  );
 }
 
 export default App

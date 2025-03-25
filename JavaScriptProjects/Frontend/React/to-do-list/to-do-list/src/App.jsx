@@ -2,21 +2,22 @@ import React from "react";
 import { useState } from "react";
 
 
+
 function App() {
 
-  const [items, setItems] = useState(["Java", "Java Script", "Python"]);
-  const [newItem, setNewItem] = useState(""); 
 
-  function handleOnChange(event) {
-    setNewItem(event.target.value);
+  const [items, setItems] = useState(["Java", "JavaScript", "Python"]);
+  const [addItem, setAddItem] = useState("");
+
+
+  function handleOnChange(event){
+    setAddItem(event.target.value);
   }
 
   function handleOnClick(){
-    
-    setItems(prevValues =>
-      [...prevValues, newItem]
-    )
-
+      setItems((prevItems) =>
+        [...prevItems, addItem]
+      )
   }
 
 
@@ -29,8 +30,8 @@ function App() {
 
       <div className="form">
 
-        <input onChange={handleOnChange} type="text" placeholder="Add to-do list"/>
-        <button onClick={handleOnClick} > <span>Add</span> </button>
+        <input value={addItem} onChange={handleOnChange} type="text" placeholder="Add to-do list"/>
+        <button onClick={handleOnClick}> <span>Add</span> </button>
 
       </div>
 

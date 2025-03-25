@@ -5,18 +5,17 @@ import React from 'react';
 
 function App() {
 
-  const [contact, setContact] = useState({ fName: "", lName: "", email: "" });
 
-  function handleOnChange(event) {
-    
-    const { name, value } = event.target;
+  const [contact, setContact] = useState({firstName : "", lastName: "", email: ""});
 
-    setContact((previousValue) => { 
-      return ({
-        ... previousValue,
-        [name] : value,
-      })
-    });
+  function handleOneChange(event){
+
+    setContact(prevValues => {
+
+      const {name, value} = event.target;
+      return ({...prevValues, [name] : value})
+
+    })
 
   }
 
@@ -26,13 +25,12 @@ function App() {
 
         <form>
 
-          <h1> Hello {contact.fName} {contact.lName}</h1>
+          <h1> Hello {contact.firstName} {contact.lastName}</h1>
           <p>{contact.email}</p>
 
-          <input onChange={handleOnChange} name='fName' value={contact.fName} placeholder='First Name' />
-          <input onChange={handleOnChange} name='lName' value={contact.lName} placeholder='Last Name' />
-          <input onChange={handleOnChange} name='email' value={contact.email} placeholder='Email' />
-
+          <input name='firstName' onChange={handleOneChange} placeholder='First Name' />
+          <input name='lastName' onChange={handleOneChange} placeholder='Last Name' />
+          <input name='email' onChange={handleOneChange} placeholder='Email' />
           <button>Submit</button>
 
         </form>

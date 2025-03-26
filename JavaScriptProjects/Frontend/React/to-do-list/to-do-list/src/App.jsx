@@ -1,25 +1,27 @@
 import React from "react";
 import { useState } from "react";
-
+import ToDoItem from "./components/ToDoItem";
 
 
 function App() {
 
+  const [items, setItems] = useState(["Java", "Javascript", "Python"]);
+  const [addItem, setAddItem] = useState();
 
-  const [items, setItems] = useState(["Java", "JavaScript", "Python"]);
-  const [addItem, setAddItem] = useState("");
-
-
-  function handleOnChange(event){
+  function handleOnChange(event) {
     setAddItem(event.target.value);
   }
 
-  function handleOnClick(){
-      setItems((prevItems) =>
-        [...prevItems, addItem]
-      )
-  }
+  function handleOnClick() {
+    if (addItem.trim() != "") {
+      setItems((prevValues) => {
+        return [...prevValues, addItem];
+      })
 
+      setAddItem("");
+
+    }
+  }
 
   return (
     <div className="container">
@@ -30,15 +32,13 @@ function App() {
 
       <div className="form">
 
-        <input value={addItem} onChange={handleOnChange} type="text" placeholder="Add to-do list"/>
-        <button onClick={handleOnClick}> <span>Add</span> </button>
+        <input onChange={handleOnChange} value={addItem} type="text" placeholder="Add to-do list" />
+        <button onClick={handleOnClick} > <span>Add</span> </button>
 
       </div>
 
       <div>
-        <ul>
-          {items.map(item => <li>{item}</li>)}
-        </ul>
+        <ToDoItem value={items}/>
       </div>
 
     </div>

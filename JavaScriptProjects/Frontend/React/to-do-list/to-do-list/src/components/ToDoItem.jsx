@@ -1,17 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
 
-
-const ToDoItem = (props) => {
-
-
+const ToDoList = (props) => {
     return (
-        <div onClick={() => {
-            props.onChecked(props.id);
-        }}>
-            <li>{props.text}</li>
-        </div>
+        <>
+            <li onClick={() => { props.onChecked(props.id) }}>{props.item}</li>
+        </>
     )
-
 }
 
-export default ToDoItem
+export default ToDoList;

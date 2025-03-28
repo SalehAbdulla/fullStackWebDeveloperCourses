@@ -1,53 +1,46 @@
 import React from "react";
 import { useState } from "react";
+import ToDoList from "./components/ToDoItem";
 
 function App() {
-  const [items, setItems] = useState(["Java", "JavaScript"]);
-  const [addItem, setAddItem] = useState("");
 
-  function handleOnChange(event) {
+  const [addItem, setAddItem] = useState("");
+  const [items, setItems] = useState(["Java", "JavaScript"]);
+
+  function handleOnChange(event){
     setAddItem(event.target.value);
   }
 
-  function handleOnClick() {
-    setItems((prevValues) => {
-      return [...prevValues, addItem];
-    });
+  function handleOnClick(){
+    setItems((prevValues) =>{
+      return [... prevValues, addItem];
+    })
     setAddItem("");
   }
 
-  function deleteItem(id) {
-    setItems((prevValues) => {
-      return prevValues.filter((value, index) => {
+  function deleteItem(id){
+    setItems((prevValues) =>{
+      return prevValues.filter((item, index)=>{
         return index !== id;
-      });
-    });
+      })
+    })
   }
 
   return (
     <div className="container">
+
       <div className="heading">
         <h1>To-Do List</h1>
       </div>
 
       <div className="form">
-        <input
-          onChange={handleOnChange}
-          value={addItem}
-          placeholder="Enter value"
-        />
-        <button onClick={handleOnClick}>
-          <span>Add</span>
-        </button>
+        <input value={addItem} onChange={handleOnChange} placeholder="Enter value"/>
+        <button onClick={handleOnClick} ><span>Add</span></button>
       </div>
 
       <div>
         <ul>
-          {items.map((item, index) => (
-            <li key={index} onClick={() => deleteItem(index)}>
-              {item}
-            </li>
-          ))}
+          {items.map((item, index) =>   <ToDoList key={index} id={index} item={item} onChecked={deleteItem}/>)}
         </ul>
       </div>
     </div>

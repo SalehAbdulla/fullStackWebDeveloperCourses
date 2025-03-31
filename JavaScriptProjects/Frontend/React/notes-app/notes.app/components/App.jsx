@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
@@ -7,13 +7,9 @@ import CreateArea from "./CreateArea";
 
 function App() {
 
-
   const [notes, setNotes] = useState([]);
 
-  // - Add new note to an array.
-  //- Take array and render seperate Note components for each item.
-
-  function getNotes(note) {
+  function addToNotes(note) {
     setNotes(prevValue => {
       return [...prevValue, note];
     })
@@ -22,8 +18,8 @@ function App() {
   return (
     <div>
       <Header />
-      <CreateArea getNotes={getNotes} />
-      {notes.map((note) => { <Note title={note.title} content={note.content} /> })}
+      <CreateArea addToNotes={addToNotes} />
+      {notes.map((note, index) => <Note key={index} id={index} title={note.title} content={note.content} />)}
       <Footer />
     </div>
   );

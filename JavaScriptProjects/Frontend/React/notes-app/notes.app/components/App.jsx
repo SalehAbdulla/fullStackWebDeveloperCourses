@@ -7,19 +7,20 @@ import CreateArea from "./CreateArea";
 
 function App() {
 
-  const [notes, setNotes] = useState([]);
+  const [allNotes, setAllNotes] = useState([]);
 
-  function addToNotes(note) {
-    setNotes(prevValue => {
-      return [...prevValue, note];
+  function catchNote(note){
+    setAllNotes(prevValues => {
+      return [...prevValues, note];
     })
+    
   }
 
   return (
     <div>
       <Header />
-      <CreateArea addToNotes={addToNotes} />
-      {notes.map((note, index) => <Note key={index} id={index} title={note.title} content={note.content} />)}
+      <CreateArea catchNote={catchNote} />
+      {allNotes.map((note, index) => <Note key={index} id={index} title={note.title} content={note.content}/>)}
       <Footer />
     </div>
   );

@@ -19,6 +19,8 @@ function CreateArea(props) {
     setNote({ title: "", content: "" });
   }
 
+
+
   return (
     <div>
       <form>

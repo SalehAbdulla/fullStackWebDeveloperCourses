@@ -9,18 +9,26 @@ function App() {
 
   const [allNotes, setAllNotes] = useState([]);
 
-  function catchNote(note){
+  function catchNote(note) {
     setAllNotes(prevValues => {
       return [...prevValues, note];
     })
-    
+
+  }
+
+  function deleteNote(id) {
+    setAllNotes(prevValues => {
+      return prevValues.filter((value, index) => {
+        return index !== id;
+      })
+    })
   }
 
   return (
     <div>
       <Header />
       <CreateArea catchNote={catchNote} />
-      {allNotes.map((note, index) => <Note key={index} id={index} title={note.title} content={note.content}/>)}
+      {allNotes.map((note, index) => <Note deleteNote={deleteNote} key={index} id={index} title={note.title} content={note.content} />)}
       <Footer />
     </div>
   );

@@ -1,12 +1,18 @@
 import React from "react";
-import { useState } from "react";
 
-const ToDoList = (props) => {
+
+
+const ToDoItem = (props)=>{
     return (
         <>
-            <li onClick={()=> {props.onChecked(props.id)} }>{props.item}</li>
+            <li onClick={()=>{
+                {props.deleteItem(props.id)}
+            }}>
+                {props.item}
+            </li>
         </>
     )
 }
 
-export default ToDoList;
+
+export default ToDoItem;

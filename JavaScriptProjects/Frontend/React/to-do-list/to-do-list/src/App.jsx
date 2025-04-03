@@ -1,26 +1,28 @@
 import React from "react";
 import { useState } from "react";
-import ToDoList from "./components/ToDoItem";
+import ToDoItem from "./components/ToDoItem";
+
 
 function App() {
+  
 
-  const [addItem, setAddItem] = useState("");
   const [items, setItems] = useState(["Java", "JavaScript"]);
+  const [addItem, setAddItem] = useState();
 
   function handleOnChange(event){
     setAddItem(event.target.value);
   }
 
   function handleOnClick(){
-    setItems((prevValues) =>{
-      return [... prevValues, addItem];
+    setItems(prevValues => {
+      return [...prevValues, addItem];
     })
     setAddItem("");
   }
 
   function deleteItem(id){
-    setItems((prevValues) =>{
-      return prevValues.filter((item, index)=>{
+    setItems(prevValues =>{
+      return prevValues.filter((item, index) =>{
         return index !== id;
       })
     })
@@ -40,7 +42,7 @@ function App() {
 
       <div>
         <ul>
-          {items.map((item, index) =>   <ToDoList key={index} id={index} item={item} onChecked={deleteItem}/>)}
+          {items.map((item, index) => <ToDoItem key={index} id={index} item={item} deleteItem={deleteItem}/>)}
         </ul>
       </div>
     </div>

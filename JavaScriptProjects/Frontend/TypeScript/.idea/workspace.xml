@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8f543fff-927b-40e6-b6ca-d67c3606be98" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Backend/6.1+Blog+API+Project/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Backend/6.1+Blog+API+Project/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Backend/6.1+Blog+API+Project/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Backend/6.1+Blog+API+Project/public/styles/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Backend/6.1+Blog+API+Project/server.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Backend/6.1+Blog+API+Project/solution.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Backend/6.1+Blog+API+Project/views/index.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Backend/6.1+Blog+API+Project/views/modify.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/typeScriptCourse/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/typeScriptCourse/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nextJsCourse/my-app/src/app/(root)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../nextJsCourse/my-app/src/app/(root)/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nextJsCourse/my-app/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../nextJsCourse/my-app/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nextJsCourse/my-app/src/app/page.tsx" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="2vPQZ8tsxBVEXK16zyOqzQB2lzg" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/nonem/OneDrive/Desktop/Coding/fullStackWebDeveloper/JavaScriptProjects/Frontend/TypeScript",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Users\\nonem\\OneDrive\\Desktop\\Coding\\fullStackWebDeveloper\\JavaScriptProjects\\Frontend\\TypeScript\\code\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-WS-243.26053.12" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8f543fff-927b-40e6-b6ca-d67c3606be98" name="Changes" comment="" />
+      <created>1744044283485</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744044283485</updated>
+      <workItem from="1744044286336" duration="67000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/code/app.js" />
+      </list>
+    </option>
+  </component>
+</project>

@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
-import {Inter} from "next/font/google";
+import { Inter } from "next/font/google";
 
-import "./globals.css";
 
 const inter = Inter({subsets: ['latin']});
 
-
 export const metadata: Metadata = {
-  title: "Creative Brain Store",
-  description: "A modern ecommerce platform built with Next.js",
+  title: "Creative Brain store",
+  description: "A modern e-commerce platform built with Next.js",
 };
 
 export default function RootLayout({
@@ -19,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
       </body>

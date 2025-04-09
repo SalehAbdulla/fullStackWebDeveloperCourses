@@ -1,12 +1,15 @@
+import pg from "pg";
+dotenv.config(); // with this we can read enviroment variables
+
 import express from "express";
 import helmet from "helmet";
 import morgan from "morgan";
 import cors from "cors";
 import dotenv from "dotenv";
 import productRoutes from "./routes/productRoutes.js"; // make sure of writing .js extention at the end
-import pg from "pg";
 
-const db = new pg.Client({
+
+export const db = new pg.Client({
   user: process.env.PG_USER,
   host: process.env.PG_HOST,
   database: process.env.PG_DATABASE,
@@ -15,9 +18,6 @@ const db = new pg.Client({
 });
 
 db.connect();
-
-
-dotenv.config(); // with this we can read enviroment variables
 
 const app = express();
 const PORT = process.env.PORT;
@@ -37,3 +37,5 @@ app.use("/api/products", productRoutes);
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+

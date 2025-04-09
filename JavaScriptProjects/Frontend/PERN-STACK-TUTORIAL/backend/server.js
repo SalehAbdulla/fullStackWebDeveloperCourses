@@ -4,6 +4,18 @@ import morgan from "morgan";
 import cors from "cors";
 import dotenv from "dotenv";
 import productRoutes from "./routes/productRoutes.js"; // make sure of writing .js extention at the end
+import pg from "pg";
+
+const db = new pg.Client({
+  user: process.env.PG_USER,
+  host: process.env.PG_HOST,
+  database: process.env.PG_DATABASE,
+  password: process.env.PG_PASSWORD,
+  port: process.env.PG_PORT,
+});
+
+db.connect();
+
 
 dotenv.config(); // with this we can read enviroment variables
 
@@ -19,7 +31,7 @@ app.use(morgan("dev")); // morgan will console.log the requests.
 
 console.log(PORT);
 
-// GET all products from DB, and sent it back as a res
+// Middleware - hold all requests of products from DB, and sent it back as a res
 app.use("/api/products", productRoutes);
 
 app.listen(PORT, () => {

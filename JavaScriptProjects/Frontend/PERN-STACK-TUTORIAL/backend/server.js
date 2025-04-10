@@ -29,7 +29,6 @@ app.use(cors()); // Enables Cross-Origin Resource Sharing.
 app.use(helmet()); // helmet is a security middleware that helps us protect our application by setting various HTTP headers
 app.use(morgan("dev")); // morgan will console.log the requests.
 
-console.log(PORT);
 
 // Middleware - hold all requests of products from DB, and sent it back as a res
 app.use("/api/products", productRoutes);

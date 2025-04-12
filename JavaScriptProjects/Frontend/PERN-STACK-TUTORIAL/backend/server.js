@@ -1,11 +1,14 @@
+// manadatory libraries
+import express from "express";
 import pg from "pg";
+import dotenv from "dotenv";
 dotenv.config(); // with this we can read enviroment variables
 
-import express from "express";
+// Best practice libraries
 import helmet from "helmet";
 import morgan from "morgan";
 import cors from "cors";
-import dotenv from "dotenv";
+
 import productRoutes from "./routes/productRoutes.js"; // make sure of writing .js extention at the end
 
 

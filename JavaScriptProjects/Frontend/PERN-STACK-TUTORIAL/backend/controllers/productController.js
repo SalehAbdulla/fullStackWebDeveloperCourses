@@ -72,19 +72,17 @@ export const updateProduct = async (req, res) => {
     }
 };
 
+// Delete a specific product
 export const deleteProduct = async (req, res) => {
-    const { id } = req.body;
+    const id = req.params.id;
     try {
         const deleteProduct = await db.query("DELETE FROM product WHERE id=$1 RETURNING *", [id]);
-
-        if (deleteProduct.length === 0) {
-            return res.status(500).json({ success: false, message: "Error deleting product" });
+        if (deleteProduct.rows.length === 0) {
+            res.status(404).json({ success: false, message: "Product not found" });
         } else {
-            res.status(200).json({ success: true, data: deleteProduct[0] });
+            res.status(200).json({ success: true, data: deleteProduct.rows[0] });
         }
-
     } catch (error) {
-        console.log(`Error in deleteProduct function: ${error}`);
-        res.status(500).json({ success: false, message: "Error deleting product" });
+        res.status(500).json({ success: false, message: error.message });
     }
 };

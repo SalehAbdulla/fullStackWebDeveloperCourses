@@ -55,6 +55,7 @@ app.post("/register", async (req, res) => {
   try {
 
     const isEmailExist = await db.query("SELECT * FROM users WHERE email = $1", [req.body.username]);
+    
     if (isEmailExist.rows.length == 0) {
 
       const hashedPassword = await bcrypt.hash(req.body.password, 10);
@@ -76,9 +77,6 @@ app.post("/register", async (req, res) => {
     res.send(err);
   }
 });
-
-
-
 
 
 // -----------  Strategies  ----------------

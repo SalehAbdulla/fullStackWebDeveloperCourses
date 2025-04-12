@@ -6,6 +6,8 @@ CREATE TABLE customers (
   address STRING,
   PRIMARY KEY (id)
 );
+
+
 -- insert some values
 INSERT INTO customers VALUES (1, 'John', 'Doe', '32 Cherry Blvd');
 INSERT INTO customers VALUES (2, 'Angela', 'Yu', '12 Sunset Drive');

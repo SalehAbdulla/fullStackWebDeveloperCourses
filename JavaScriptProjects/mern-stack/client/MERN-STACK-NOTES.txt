@@ -15,3 +15,8 @@ in the /src we will add 3 Foldees:
 
 
 import { createContext } from "react"; -> 
+
+
+Learn About context components.
+Course Link:
+https://youtu.be/PaQX0pktLnw?si=WRGm6n1jxZ1b6ACi

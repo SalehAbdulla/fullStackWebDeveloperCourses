@@ -1,16 +1,15 @@
 BEST PRACTICE PACKAGES
 1- react-router-dom => for routing
-2- react-hot-toast => used to add beautiful, customizable notifications
+2- react-hot-toast => used to add beautiful, customizable toast notifications
 
 
 --- 
 We import BrowserRouter in the main.jsx
 import { BrowserRouter } from 'react-router-dom',, then we will replace StrictMode with BrowserRouter
 
-
 in the /src we will add 3 Foldees:
-    1- context
-    2- pages
+    1- context => to create a global access state constents
+    2- pages => all pages
     3- components
 
 

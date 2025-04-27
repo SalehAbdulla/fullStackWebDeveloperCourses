@@ -2,12 +2,14 @@
 @import "tailwindcss";
 
 * {
-    font-family: "Lato, sans-serif";
+    font-family: "Outfit", "sans-serif";
 }
+
 /* This is a CSS variable to use a static theme for the project */
 
 @theme {
     --color-primary: #4fbf8b;
     --color-primary-dull: #44ae7c;
 }
+
 

@@ -1,0 +1,31 @@
+.counter-button-box {
+  display: flex;
+  justify-content: center;
+}
+
+.counter-button {
+  background-color: rgb(77, 163, 237);
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  border: none;
+  margin-left: 10px;
+  border-radius: 10px;
+  width: 70px;
+  height: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.counter-box {
+  display: flex;
+  justify-content: center;
+}
+
+.counter {
+  font-size: 3rem;
+}

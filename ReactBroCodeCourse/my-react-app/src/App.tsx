@@ -1,12 +1,11 @@
 import "./App.css";
-import UserGreeting from "../src/components/UserGreeting/UserGreeting.tsx";
+import { ColorPicker } from "./components/ColorPicker/ColorPicker";
 
 function App() {
 
-
   return (
     <>
-      <UserGreeting isLoggedIn={true}/>
+      <ColorPicker/>
     </>
   );
 }

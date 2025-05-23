@@ -1,0 +1,13 @@
+.button {
+    display: flex;
+    margin-top: 10px;
+    width: 100px;
+    height: 40px;
+    border: none;
+    text-align: center;
+    padding: 5px 2px 2px 2px;
+    background-color: rgba(32, 32, 242, 0.673);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+}

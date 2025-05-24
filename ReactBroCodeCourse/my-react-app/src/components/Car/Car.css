@@ -1,0 +1,12 @@
+.main-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sec-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+

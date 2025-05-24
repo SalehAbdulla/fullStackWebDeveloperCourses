@@ -2,45 +2,22 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.color-picker-container {
+.main-display {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-h1 {
-    margin: 50px;
-    font-size: 3rem;
-}
-
-.color-display {
+.secondary-color-picker {
     width: 300px;
     height: 300px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    border: 5px solid hsl(0, 0%, 80%);
-    border-radius: 25px;
-    margin-bottom: 25px;
-    transition:all 0.25s ease
+    justify-content: center;
+    margin: 10px 10px 10px 10px;
+    border-radius: 20px;
+    border: 2px solid blueviolet;
+    transition: all 0.3s ease;
 }
 
-.color-display p {
-    color: hsl(0, 0%, 20%);
-    font-size: 2rem;
-    text-align: center;
-}
 
-label {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-input[type="color"] {
-    width: 75px;
-    height: 50px;
-    padding: 5px;
-    border-radius: 10px;
-    border: 3px solid hsl(0, 0%, 80% )
-}

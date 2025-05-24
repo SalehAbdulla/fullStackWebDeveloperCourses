@@ -1,11 +1,10 @@
 import "./App.css";
-import { ColorPicker } from "./components/ColorPicker/ColorPicker";
+import { EnhacedCar } from "./components/EnhacedCar/EnhacedCar";
 
 function App() {
-
   return (
     <>
-      <ColorPicker/>
+      <EnhacedCar/>
     </>
   );
 }

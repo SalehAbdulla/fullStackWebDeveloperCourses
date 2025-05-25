@@ -1,0 +1,35 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 10px 10px 10px;
+}
+
+.car-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 10px 10px 10px;
+}
+
+button {
+  margin-top: 10px;
+  background-color: blueviolet;
+  border-radius: 25px;
+  color: white;
+  width: 100px;
+  height: 30px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(153, 44, 255);
+  transform: scale(0.3s);
+}

@@ -1,10 +1,10 @@
 import "./App.css";
-import { ToDoListPractice } from "./components/ToDoListPractice/ToDoListPractice";
+import { DigitalClockPractice } from "./components/DigitalClockPractice/DigitalClockPractice";
 
 function App() {
   return (
     <>
-      <ToDoListPractice />
+      <DigitalClockPractice/>
     </>
   );
 }

@@ -2,11 +2,11 @@ import "./DigitalClockPractice.css";
 import { useState, useEffect } from "react";
 
 export const DigitalClockPractice = () => {
-  const [time, setTime] = useState(new Date());
+  const [clock, setClock] = useState(new Date());
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTime(new Date());
+      setClock(new Date());
     }, 1000);
 
     return () => {
@@ -14,24 +14,26 @@ export const DigitalClockPractice = () => {
     };
   }, []);
 
-  const getTime = () => {
-    let hour = time.getHours();
-    const minute = time.getMinutes();
-    const seconds = time.getSeconds();
-    const meridiem = hour > 12 ? "PM" : "AM";
+  const getTimeFormat = () => {
+    let hour = clock.getHours();
+    const minutes = clock.getMinutes();
+    const seconds = clock.getSeconds();
+    const amOrPm = hour >= 12 ? "PM" : "AM";
 
     hour = hour % 12 || 12;
 
-    return `${padZero(hour)}:${padZero(minute)}:${padZero(seconds)} ${meridiem}`;
+    return `${padClock(hour)}:${padClock(minutes)}:${padClock(
+      seconds
+    )} ${amOrPm}`;
   };
 
-  const padZero = (number: number) => {
+  const padClock = (number: number) => {
     return (number < 10 ? "0" : "") + number;
   };
 
   return (
     <div>
-      <h1>{getTime()}</h1>
+      <h1>{getTimeFormat()}</h1>
     </div>
   );
 };

@@ -1,10 +1,10 @@
 import "./App.css";
-import { DigitalClockPractice } from "./components/DigitalClockPractice/DigitalClockPractice";
+import { StopWatch } from "./components/StopWatch/StopWatch";
 
 function App() {
   return (
     <>
-      <DigitalClockPractice/>
+    <StopWatch />
     </>
   );
 }

@@ -8,6 +8,7 @@ type State = {
 };
 
 export const App = () => {
+  
   // We constrctring the the useState here
   // const [count, setCount] = useState<number>(0);
   // const [firstName, setFirstName] = useState<string>("Saleh");

@@ -1,0 +1,19 @@
+/*Selector {property: value}*/
+
+p {
+  color: chocolate;
+}
+
+h1 {
+  color: brown;
+}
+
+h2 {
+  color: rgb(255, 0, 0);
+}
+
+div {
+  background-color: red;
+  width: 200px;
+  height: 200px;
+}

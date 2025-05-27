@@ -62,6 +62,10 @@ const MainContent = () => {
             <li>
               <Link to={"/lessonFour"}>Lesson Four</Link>
             </li>
+
+            <li>
+              <Link to={"/lessonFive"}>Lesson Five</Link>
+            </li>
           </ol>
         </div>
       </div>

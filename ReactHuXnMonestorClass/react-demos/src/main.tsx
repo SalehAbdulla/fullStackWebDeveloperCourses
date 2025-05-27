@@ -12,6 +12,7 @@ import Lessonthree from "./components/Lessons/LessonThree/Lessonthree";
 import ChallengeFive from "./components/Challenges/ChallengeFive/ChallengeFive";
 import LessonFour from "./components/Lessons/LessonFour/LessonFour";
 import ChallengeSix from "./components/Challenges/ChallengeSix/ChallengeSix";
+import LessonFive, { Cart } from "./components/Lessons/LessonFive/LessonFive";
 
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
@@ -25,6 +26,9 @@ const router = createBrowserRouter([
   { path: "/challengeFive", element: <ChallengeFive /> },
   { path: "/lessonFour", element: <LessonFour /> },
   { path: "/challengeSix", element: <ChallengeSix /> },
+  { path: "/lessonFive", element: <LessonFive /> },
+  { path: "/cart", element: <Cart /> },
+
 ]);
 
 createRoot(document.getElementById("root")!).render(

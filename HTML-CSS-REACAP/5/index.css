@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+}
+
+div {
+    /* border-width: 5px;
+    border-style: solid;
+    border-color: red; */
+    border: 2px solid red;
+    border-left: 4px solid teal;
+    border-right: 4px solid teal;
+    border-bottom: 5px solid black;
+    padding: 20px 10px;
+    margin: 0vh auto;
+}
+
+

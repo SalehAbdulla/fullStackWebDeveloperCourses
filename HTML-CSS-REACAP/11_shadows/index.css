@@ -1,0 +1,19 @@
+/* x, y, blurness, color */
+
+body {
+    background-color: #000;
+}
+
+
+div {
+    width: 200px;
+    height: 200px;
+    background: rgb(105, 105, 205);
+    box-shadow: 10px 10px 10px rgb(98, 0, 255);
+}
+
+h1 {
+    text-shadow: 2px 2px 2px red;
+    font-size: 5rem;
+    text-align: center;
+}

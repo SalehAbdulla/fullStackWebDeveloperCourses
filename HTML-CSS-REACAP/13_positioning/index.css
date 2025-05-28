@@ -1,0 +1,31 @@
+.container {
+    background: gray;
+    width: 90%;
+    height: 500px;
+}
+
+.d {
+    width: 100px;
+    height: 100px;
+}
+
+.one {
+    background: red;
+    position: relative; /* Any where will not leave its position*/
+    left: 200px;
+}
+
+.two {
+    background: blue;
+    position: absolute; /* Any where will leave its position*/
+    left: 200px;
+    top: 200px;
+
+}
+
+.three {
+    background: green;
+    position: sticky; /* Stick to Scroling only, and the Fixed as its name will be fixed */
+    top: 100px;
+
+}

@@ -1,0 +1,21 @@
+.parent {
+    background-color: cyan;
+    font-size: 100px;
+    font-weight: bold;
+    box-shadow: 2px 2px 20px blueviolet;
+    padding: 20px;
+    position: relative;
+    text-align: center;
+}
+
+.child {
+    background-color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    box-shadow: inherit;
+    padding: inherit;
+    position: inherit;
+    text-align: inherit;
+}
+
+

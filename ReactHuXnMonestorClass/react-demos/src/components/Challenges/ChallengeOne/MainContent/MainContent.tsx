@@ -94,6 +94,18 @@ const MainContent = () => {
             <li>
               <Link to={"/lessoneight"}>Lesson Eight - State Hooks</Link>
             </li>
+
+            <li>
+              <Link to={"/fullcrud"}>Lesson Nine - State FULL CRUD</Link>
+            </li>
+
+            <li>
+              <Link to={"/fullcrud2"}>Lesson TEN - State Hook 2</Link>
+            </li>
+
+            <li>
+              <Link to={"/moviesApp"}>Lesson Eleven - State Hook 3</Link>
+            </li>
           </ol>
         </div>
       </div>

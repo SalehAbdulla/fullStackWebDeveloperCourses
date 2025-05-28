@@ -1,5 +1,6 @@
-import "./HandleUpdateComponent.css";
+// import "./HandleUpdateComponent.css";
 import { useState, useRef } from "react";
+import {Link} from "react-router-dom";
 
 type movieProp = {
   id: number;
@@ -100,6 +101,8 @@ const lastIdRef = useRef(3);
         </button>
 
       </div>
+
+      <Link style={{color: "black"}} to={"/"}>Back To Home</Link>
     </div>
   );
 };

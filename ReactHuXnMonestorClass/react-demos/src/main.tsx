@@ -21,9 +21,11 @@ import ChallengeEight from "./components/Challenges/ChallengeEight/ChallengeEigh
 import LessonSeven from "./components/Lessons/LessonSeven/LessonSeven";
 import LessonEight from "./components/Lessons/LessonEight/LessonEight";
 import HandleUpdateComponent from "./components/Lessons/LessonEight/HandleUpdateComponent";
+import CrudApp from "./components/Lessons/LessonNine/CrudApp";
+import CrudPractice from "./components/Lessons/LessonNine/CrudPractice";
+import LessonEleven from "./components/Lessons/LessonEleven/LessonEleven";
 
 const router = createBrowserRouter([
-
   { path: "/", element: <App /> },
   { path: "/welcome", element: <WelcomeMessage /> },
   { path: "*", element: <NotFoundPage /> },
@@ -38,14 +40,23 @@ const router = createBrowserRouter([
   { path: "/lessonFive", element: <LessonFive /> },
   { path: "/cart", element: <Cart /> },
   { path: "/challengeSeven", element: <ChallengeSeven temp={40} /> },
-  { path: "/UserStatus", element: <UserStatus isLoggedIn={true} isAdmin={true} /> },
-  { path: "/challengeSevenGreeting", element: <ChallengeSevenGreeting timeOfDay="morning"/> },
-  { path: "/lessonsix", element: <LessonSix/> },
-  { path: "/challengeEight", element: <ChallengeEight/> },
-  { path: "/lessonseven", element: <LessonSeven/> },
-  { path: "/lessoneight", element: <LessonEight/> },
-  { path: "/handleupdatecomponent", element: <HandleUpdateComponent/> },
-
+  {
+    path: "/UserStatus",
+    element: <UserStatus isLoggedIn={true} isAdmin={true} />,
+  },
+  {
+    path: "/challengeSevenGreeting",
+    element: <ChallengeSevenGreeting timeOfDay="morning" />,
+  },
+  { path: "/lessonsix", element: <LessonSix /> },
+  { path: "/challengeEight", element: <ChallengeEight /> },
+  { path: "/lessonseven", element: <LessonSeven /> },
+  { path: "/lessoneight", element: <LessonEight /> },
+  { path: "/handleupdatecomponent", element: <HandleUpdateComponent /> },
+  { path: "/fullcrud", element: <HandleUpdateComponent /> },
+  { path: "/fullcrud2", element: <CrudApp /> },
+  { path: "/crudpractice", element: <CrudPractice/> },
+  { path: "/moviesApp", element: <LessonEleven/> },
 ]);
 
 createRoot(document.getElementById("root")!).render(

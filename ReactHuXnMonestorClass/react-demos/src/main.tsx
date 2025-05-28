@@ -13,8 +13,17 @@ import ChallengeFive from "./components/Challenges/ChallengeFive/ChallengeFive";
 import LessonFour from "./components/Lessons/LessonFour/LessonFour";
 import ChallengeSix from "./components/Challenges/ChallengeSix/ChallengeSix";
 import LessonFive, { Cart } from "./components/Lessons/LessonFive/LessonFive";
+import ChallengeSeven from "./components/Challenges/ChallengeSeven/ChallengeSeven";
+import UserStatus from "./components/Challenges/ChallengeSeven/UserStatus";
+import ChallengeSevenGreeting from "./components/Challenges/ChallengeSeven/ChallengeSevenGreeting/ChallengeSevenGreeting";
+import LessonSix from "./components/Lessons/LessonSix/LessonSix";
+import ChallengeEight from "./components/Challenges/ChallengeEight/ChallengeEight";
+import LessonSeven from "./components/Lessons/LessonSeven/LessonSeven";
+import LessonEight from "./components/Lessons/LessonEight/LessonEight";
+import HandleUpdateComponent from "./components/Lessons/LessonEight/HandleUpdateComponent";
 
 const router = createBrowserRouter([
+
   { path: "/", element: <App /> },
   { path: "/welcome", element: <WelcomeMessage /> },
   { path: "*", element: <NotFoundPage /> },
@@ -28,6 +37,14 @@ const router = createBrowserRouter([
   { path: "/challengeSix", element: <ChallengeSix /> },
   { path: "/lessonFive", element: <LessonFive /> },
   { path: "/cart", element: <Cart /> },
+  { path: "/challengeSeven", element: <ChallengeSeven temp={40} /> },
+  { path: "/UserStatus", element: <UserStatus isLoggedIn={true} isAdmin={true} /> },
+  { path: "/challengeSevenGreeting", element: <ChallengeSevenGreeting timeOfDay="morning"/> },
+  { path: "/lessonsix", element: <LessonSix/> },
+  { path: "/challengeEight", element: <ChallengeEight/> },
+  { path: "/lessonseven", element: <LessonSeven/> },
+  { path: "/lessoneight", element: <LessonEight/> },
+  { path: "/handleupdatecomponent", element: <HandleUpdateComponent/> },
 
 ]);
 

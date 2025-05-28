@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  
+}
+
+html,
+body {
+  height: 100vh;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  margin-top: 10vh;
+  flex: 1;
+  margin-bottom: 30px;
+}
+
+footer {
+  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+  padding: 1rem;
+  color: rgb(109, 38, 38);
+  text-align: center;
+}

@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+}
+
+.challengeeight-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: radial-gradient(
+    circle 248px at center,
+    #16d9e3 0%,
+    #30c7ec 47%,
+    #46aef7 100%
+  );
+
+  border-radius: 20px;
+    margin: 30px;
+}
+
+.smashing-class {
+  margin: 20px;
+  
+}
+
+h1 {
+  margin: 10px;
+}
+
+p {
+  margin: 10px;
+}

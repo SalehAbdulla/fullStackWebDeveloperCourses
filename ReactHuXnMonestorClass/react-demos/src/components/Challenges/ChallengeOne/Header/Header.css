@@ -1,0 +1,18 @@
+.website-header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.items {
+    margin: 10px;
+    
+}
+
+nav > a {
+    margin: 10px;
+    cursor: pointer;
+}
+h1 {
+    margin: 10px;
+}

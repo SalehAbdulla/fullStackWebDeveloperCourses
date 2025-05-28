@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 export const Cart = () => {
+    
   const items = ["Wireless Eabuds", "Power Bank", "New SSD", "Hoddie"];
 
   return (

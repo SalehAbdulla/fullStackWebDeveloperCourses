@@ -1,0 +1,85 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+}
+
+.input-btn {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin: 30px;
+}
+
+.inner-input-btn {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li {
+  font-size: 25px;
+}
+
+#inner-btn {
+  width: 12em;
+  height: 3em;
+  border-radius: 30px;
+  border: none;
+  background-color: rgb(255, 153, 0);
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 10px;
+  padding: 1px;
+  margin: 0px auto;
+}
+
+#inner-btn:hover {
+  transform: scale(1.2);
+  background-color: rgb(255, 0, 0);
+}
+
+input {
+  font-size: 20px;
+}
+
+#inner-input-btn {
+  width: 12em;
+  height: 3em;
+  border-radius: 30px;
+  border: none;
+  background-color: rgb(255, 153, 0);
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 10px;
+  padding: 1px;
+  margin: 10px auto;
+  cursor: pointer;
+}
+
+.movie-btn {
+  width: 12em;
+  height: 3em;
+  border-radius: 30px;
+  border: none;
+  background-color: rgb(255, 153, 0);
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 10px;
+  padding: 1px;
+  margin: 10px auto;
+  cursor: pointer;
+}
+
+.movie-btn:hover {
+  transform: scale(1.2);
+  background-color: rgb(255, 0, 0);
+}

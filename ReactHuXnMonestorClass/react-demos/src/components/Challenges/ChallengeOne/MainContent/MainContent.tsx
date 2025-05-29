@@ -58,6 +58,18 @@ const MainContent = () => {
                 Challenge Eight -- Inline Styling
               </Link>
             </li>
+
+            <li>
+              <Link to="/challengeNine">
+                Challenge Nine -- State Hook- Counter Saved on local Storage
+              </Link>
+            </li>
+
+            <li>
+              <Link to="/challengeTen">
+                Challenge Ten -- State Hook - To Do List CRUD
+              </Link>
+            </li>
           </ol>
         </div>
 
@@ -105,6 +117,50 @@ const MainContent = () => {
 
             <li>
               <Link to={"/moviesApp"}>Lesson Eleven - State Hook 3</Link>
+            </li>
+
+            <li>
+              <Link to={"/stateWithObject"}>Lesson Twelve - State Hook 4</Link>
+            </li>
+
+            <li>
+              <Link to={"/stateWithComponent"}>
+                Lesson Thirteen - State Hook 5
+              </Link>
+            </li>
+
+            <li>
+              <Link to={"/stateWithExamples"}>
+                Lesson Fourteen - State Hook 6
+              </Link>
+            </li>
+
+            <li>
+              <Link to={"/statelocalStorage"}>
+                Lesson Fifteen - State LocalStorage
+              </Link>
+            </li>
+
+            <li>
+              <Link to={"/portal"}>Lesson Sixteen - Portal</Link>
+            </li>
+
+            <li>
+              <Link to={"/CopyClipboard"}>
+                Lesson Sixteen2 - Make a copy Clipboard
+              </Link>
+            </li>
+
+            <li>
+              <Link to={"/useEffectHook"}>
+                Lesson Seventeen - useEffectHook
+              </Link>
+            </li>
+
+            <li>
+              <Link to={"/useEffectFetchingData"}>
+                Lesson Seventeen - useEffectHook - Fetching data
+              </Link>
             </li>
           </ol>
         </div>

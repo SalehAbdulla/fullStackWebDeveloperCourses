@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {Link} from "react-router-dom";
 
 type MoviesProp = {
   id: number;
@@ -40,6 +41,9 @@ const LessonEleven = () => {
           </button>
         </div>
       ))}
+
+
+      <Link to={"/"} >Back to Home</Link>
     </div>
   );
 };

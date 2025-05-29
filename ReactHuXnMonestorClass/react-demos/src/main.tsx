@@ -24,6 +24,16 @@ import HandleUpdateComponent from "./components/Lessons/LessonEight/HandleUpdate
 import CrudApp from "./components/Lessons/LessonNine/CrudApp";
 import CrudPractice from "./components/Lessons/LessonNine/CrudPractice";
 import LessonEleven from "./components/Lessons/LessonEleven/LessonEleven";
+import LessonTwelve from "./components/Lessons/LessonTwelve/LessonTwelve";
+import LessonThirteen from "./components/Lessons/LessonThirteen/LessonThirteen";
+import LessonFourteen from "./components/Lessons/LessonFourteen/LessonFourteen";
+import LessonFifteen from "./components/Lessons/LessonFifteen/LessonFifteen";
+import ChallengeNine from "./components/Challenges/ChallengeNine/ChallengeNine";
+import ChallengeTen from "./components/Challenges/ChallengeTen/ChallengeTen";
+import LessonSixteen from "./components/Lessons/LessonSixteen/LessonSixteen";
+import LessonSixteenCopy from "./components/Lessons/LessonSixteenCopy/LessonSixteenCopy";
+import LessonSeventeen from "./components/Lessons/LessonSeventeen/LessonSeventeen";
+import LessonEighteen from "./components/Lessons/LessonEighteen/LessonEighteen";
 
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
@@ -57,6 +67,17 @@ const router = createBrowserRouter([
   { path: "/fullcrud2", element: <CrudApp /> },
   { path: "/crudpractice", element: <CrudPractice/> },
   { path: "/moviesApp", element: <LessonEleven/> },
+  { path: "/stateWithObject", element: <LessonTwelve/> },
+  { path: "/stateWithComponent", element: <LessonThirteen/> },
+  { path: "/stateWithExamples", element: <LessonFourteen/> },
+  { path: "/statelocalStorage", element: <LessonFifteen/> },
+  { path: "/challengeNine", element: <ChallengeNine/> },
+  { path: "/challengeTen", element: <ChallengeTen/>},
+  { path: "/portal", element: <LessonSixteen/>},
+  { path: "/CopyClipboard", element: <LessonSixteenCopy/> },
+  { path: "/useEffectHook", element: <LessonSeventeen/> },
+  { path: "/useEffectFetchingData", element: <LessonEighteen/>},
+
 ]);
 
 createRoot(document.getElementById("root")!).render(

@@ -70,6 +70,12 @@ const MainContent = () => {
                 Challenge Ten -- State Hook - To Do List CRUD
               </Link>
             </li>
+
+            <li>
+              <Link to="/challengeEleven">
+                Challenge Ten -- useEffect Challenge
+              </Link>
+            </li>
           </ol>
         </div>
 
@@ -162,6 +168,20 @@ const MainContent = () => {
                 Lesson Seventeen - useEffectHook - Fetching data
               </Link>
             </li>
+
+            <li>
+              <Link to={"/useEffectFetchingDataPractice"}>
+                Lesson Eighteen - useEffectHook - Fetching data Practice
+              </Link>
+            </li>
+
+
+            <li>
+              <Link to={"/LessonNineteen"}>
+                Lesson Nineteen - useContext()
+              </Link>
+            </li>
+
           </ol>
         </div>
       </div>

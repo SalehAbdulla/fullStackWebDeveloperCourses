@@ -34,6 +34,12 @@ import LessonSixteen from "./components/Lessons/LessonSixteen/LessonSixteen";
 import LessonSixteenCopy from "./components/Lessons/LessonSixteenCopy/LessonSixteenCopy";
 import LessonSeventeen from "./components/Lessons/LessonSeventeen/LessonSeventeen";
 import LessonEighteen from "./components/Lessons/LessonEighteen/LessonEighteen";
+import UseEffectFetchingDataPractice from "./components/Lessons/UseEffectFetchingDataPractice/UseEffectFetchingDataPractice";
+import ChallengeEleven from "./components/Challenges/ChallengeEleven/ChallengeEleven";
+import ChallengeEleven2 from "./components/Challenges/ChallengeEleven/ChallengeEleven2";
+import ChallengeEleven3 from "./components/Challenges/ChallengeEleven/ChallengeEleven3";
+import LessonNineteen from "./components/Lessons/LessonNineteen/LessonNineteen";
+import ComponentC from "./components/Lessons/LessonNineteen/ComponentC";
 
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
@@ -65,19 +71,27 @@ const router = createBrowserRouter([
   { path: "/handleupdatecomponent", element: <HandleUpdateComponent /> },
   { path: "/fullcrud", element: <HandleUpdateComponent /> },
   { path: "/fullcrud2", element: <CrudApp /> },
-  { path: "/crudpractice", element: <CrudPractice/> },
-  { path: "/moviesApp", element: <LessonEleven/> },
-  { path: "/stateWithObject", element: <LessonTwelve/> },
-  { path: "/stateWithComponent", element: <LessonThirteen/> },
-  { path: "/stateWithExamples", element: <LessonFourteen/> },
-  { path: "/statelocalStorage", element: <LessonFifteen/> },
-  { path: "/challengeNine", element: <ChallengeNine/> },
-  { path: "/challengeTen", element: <ChallengeTen/>},
-  { path: "/portal", element: <LessonSixteen/>},
-  { path: "/CopyClipboard", element: <LessonSixteenCopy/> },
-  { path: "/useEffectHook", element: <LessonSeventeen/> },
-  { path: "/useEffectFetchingData", element: <LessonEighteen/>},
-
+  { path: "/crudpractice", element: <CrudPractice /> },
+  { path: "/moviesApp", element: <LessonEleven /> },
+  { path: "/stateWithObject", element: <LessonTwelve /> },
+  { path: "/stateWithComponent", element: <LessonThirteen /> },
+  { path: "/stateWithExamples", element: <LessonFourteen /> },
+  { path: "/statelocalStorage", element: <LessonFifteen /> },
+  { path: "/challengeNine", element: <ChallengeNine /> },
+  { path: "/challengeTen", element: <ChallengeTen /> },
+  { path: "/portal", element: <LessonSixteen /> },
+  { path: "/CopyClipboard", element: <LessonSixteenCopy /> },
+  { path: "/useEffectHook", element: <LessonSeventeen /> },
+  { path: "/useEffectFetchingData", element: <LessonEighteen /> },
+  {
+    path: "/useEffectFetchingDataPractice",
+    element: <UseEffectFetchingDataPractice />,
+  },
+  { path: "/challengeEleven", element: <ChallengeEleven /> },
+  { path: "/challengeEleven2", element: <ChallengeEleven2 /> },
+  { path: "/challengeEleven3", element: <ChallengeEleven3 /> },
+  { path: "/LessonNineteen", element: <LessonNineteen/> },
+  { path: "/propDrilingComponentC", element: <ComponentC name="Saleh Abdulla"/> },
 ]);
 
 createRoot(document.getElementById("root")!).render(

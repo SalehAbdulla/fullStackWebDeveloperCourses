@@ -29,3 +29,10 @@
     top: 100px;
 
 }
+
+.four {
+    background: rgb(238, 255, 2);
+    position: fixed; /* Stick to Scroling only, and the Fixed as its name will be fixed */
+    left: 400px;
+
+}

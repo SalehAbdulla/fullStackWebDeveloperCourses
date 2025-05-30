@@ -1,0 +1,31 @@
+* {
+   margin: 0;
+   padding: 0;
+}
+
+body{
+   height: 100vh;
+   background-color: blueviolet;
+}
+
+.container {
+   border: 2px solid white;
+   width: 800px;
+   height: 400px;
+   margin: 20px auto;
+   /*Flex Stuff right here*/
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   flex-wrap: wrap;
+   align-items: center;
+
+}
+
+.container .child {
+   width: 50px;
+   height: 50px;
+   background-color: crimson;
+   text-align: center;
+   margin: 5px;
+}

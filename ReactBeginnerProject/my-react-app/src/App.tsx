@@ -1,8 +1,10 @@
 // import Counter from "./component/Counter/Counter"
 // import ToDoList from "./component/ToDoList/ToDoList"
 // import Meals from "./component/Meals/Meals"
+// import Calculator from "./component/Calculator/Calculator"
 
-import Calculator from "./component/Calculator/Calculator"
+import ToggleBackgroundColor from "./component/ToggleBackgroundColor/ToggleBackgroundColor"
+
 
 const App = () => {
   return (
@@ -10,7 +12,8 @@ const App = () => {
       {/* <Counter /> */}
       {/* <ToDoList/> */}
       {/* <Meals /> */}
-      <Calculator />
+      {/* <Calculator /> */}
+      <ToggleBackgroundColor />
     </div>
   )
 }

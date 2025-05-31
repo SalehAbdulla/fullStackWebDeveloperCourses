@@ -1,27 +1,9 @@
-import { useEffect, useState } from "react"
+import useFetch from "../useFetch/useFetch";
 
-type DataType = {
-  useId: number;
-  id: number;
-  title: string;
-  completed: boolean;
-}
 
 const Home = () => {
 
-  const [data, setData] = useState<DataType[]>();
-
-  useEffect(()=> {
-    const fetchData = async () => {
-      const response = await fetch("https://jsonplaceholder.typicode.com/todos");
-      const result = await response.json();
-      setData(result);
-    }
-
-    fetchData();
-
-  }, []);
-
+  const data = useFetch("https://jsonplaceholder.typicode.com/todos");
 
   return (
     <div>

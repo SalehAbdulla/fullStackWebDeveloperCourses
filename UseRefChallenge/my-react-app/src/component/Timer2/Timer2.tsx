@@ -17,7 +17,8 @@ const Timer2 = () => {
     return () => {
       clearInterval(intervalId.current);
     };
-  }, [isPause]);
+    
+  });
 
   return (
     <div>

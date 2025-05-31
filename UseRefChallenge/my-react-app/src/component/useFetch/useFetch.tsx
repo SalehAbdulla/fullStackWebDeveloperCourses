@@ -1,30 +1,23 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
-type useFetchType = {
-  url: string;
-}
+const useFetch = (url: string) => {
+  const [data, setData] = useState([{
+    userId: 1,
+    id: 1,
+    title: "delectus aut autem",
+    completed: false,
+  }]);
 
-type DataType = {
-  userId :number;
-  id: number;
-  title: string;
-  completed: boolean; 
-}
-
-const useFetch = ({url}: useFetchType):DataType=> {
-
-  const [data, setData] = useState<DataType>([]);
-
-  useEffect(()=> {
-    async function fetchData(url) {
+  useEffect(() => {
+    async function fetchData() {
       const response = await fetch(url);
-      const result = response.json();
-      return result;
+      const result = await response.json();
+      setData(result);
     }
-  },[])
+    fetchData();
+  }, [url]);
 
+  return data;
+};
 
-  return fetchData();
-}
-
-export default useFetch
+export default useFetch;
